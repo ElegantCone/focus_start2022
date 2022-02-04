@@ -27,8 +27,7 @@ public class Program {
 
             executor.execute(fileReaders, fileWriter);
         } catch (Exception ignored) {
-        }
-        finally {
+        } finally {
             closeAllFiles();
         }
     }
@@ -45,8 +44,7 @@ public class Program {
             if (fileReaders.size() < 1)
                 throw new FileNotFoundException();
             fileWriter = new BufferedWriter(new FileWriter(argumentsValidator.getArguments().outputFile, false));
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             logger.logException(e);
             closeAllFiles();
             throw e;
@@ -54,8 +52,7 @@ public class Program {
     }
 
     private void closeAllFiles() {
-        try
-        {
+        try {
             for (BufferedReader reader : fileReaders) {
                 reader.close();
             }

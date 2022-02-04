@@ -12,8 +12,7 @@ public class IntegerValueGetter extends AbstractValueGetter<Integer> {
     public Integer parseValue(String line) {
         try {
             return Integer.parseInt(line);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             return null;
         }
     }

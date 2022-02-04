@@ -43,7 +43,7 @@ public abstract class AbstractValueGetter<T extends Comparable<T>> {
                 newValue = value;
             }
 
-            if(comparators.get(argumentsDataset.isAscending).test(value, newValue)) {
+            if (comparators.get(argumentsDataset.isAscending).test(value, newValue)) {
                 if (lastValue != null && !comparators.get(argumentsDataset.isAscending).test(lastValue, value)) {
                     logger.logException(new BadSortedFileException());
                     badDataReaders.add(reader);

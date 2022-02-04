@@ -25,22 +25,20 @@ public class ArgumentsValidator {
         this.logger = logger;
     }
 
-    public void validateArgs (String[] args) throws BadArgumentsException, DuplicateFilenamesException {
+    public void validateArgs(String[] args) throws BadArgumentsException, DuplicateFilenamesException {
         List<String> files = new ArrayList<>();
         for (String arg : args) {
             if (SORT_MODES.containsKey(arg)) {
-                if (consoleArguments.isAscending != null){
+                if (consoleArguments.isAscending != null) {
                     throwBadArguments();
                 }
                 consoleArguments.isAscending = SORT_MODES.get(arg);
-            }
-            else if (DATA_TYPES.containsKey(arg)) {
-                if (consoleArguments.dataType != null){
+            } else if (DATA_TYPES.containsKey(arg)) {
+                if (consoleArguments.dataType != null) {
                     throwBadArguments();
                 }
                 consoleArguments.dataType = DATA_TYPES.get(arg);
-            }
-            else {
+            } else {
                 if (!files.contains(arg))
                     files.add(arg);
                 else

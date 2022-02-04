@@ -23,7 +23,6 @@ public class Executor {
     }
 
     public void setArguments(ConsoleArguments dataset) {
-
         switch (dataset.dataType) {
             case String:
                 valueGetter = new StringValueGetter(logger, dataset);
@@ -43,13 +42,13 @@ public class Executor {
     private void mergeSort() throws IOException {
         while (fileReaders.size() > 0) {
             try {
-                List <BufferedReader> readersToRead = new ArrayList<>();
+                List<BufferedReader> readersToRead = new ArrayList<>();
                 BufferedReader reader = valueGetter.getNeededReader(fileReaders);
                 if (reader != null) {
                     writeValue(fileReaders.get(reader));
                     readersToRead.add(reader);
                 }
-                if (!valueGetter.getBadDataReaders().isEmpty()){
+                if (!valueGetter.getBadDataReaders().isEmpty()) {
                     readersToRead.addAll(valueGetter.getBadDataReaders());
                 }
                 readLineFromReaders(readersToRead);
@@ -69,7 +68,7 @@ public class Executor {
         readersToRemove.clear();
     }
 
-    private void writeValue (String value) throws IOException {
+    private void writeValue(String value) throws IOException {
         fileWriter.write(value);
         fileWriter.newLine();
     }

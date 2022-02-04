@@ -14,6 +14,7 @@ import java.util.Properties;
 
 public class Logger {
     private static final Map<Class<?>, String> errorNames = new HashMap<>();
+
     static {
         errorNames.put(BadArgumentsException.class, "errorMessage.BadArguments");
         errorNames.put(FileNotFoundException.class, "errorMessage.FileException");
@@ -25,7 +26,7 @@ public class Logger {
 
     private static Properties errorMessages;
 
-    public Logger () {
+    public Logger() {
         try {
             initErrorProperty();
         } catch (IOException e) {

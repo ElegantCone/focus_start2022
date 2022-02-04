@@ -2,7 +2,7 @@ package com.elegantcone.exceptions;
 
 public class BadSortedFileException extends Exception {
 
-    public BadSortedFileException () {
+    public BadSortedFileException() {
         super();
 
     }
